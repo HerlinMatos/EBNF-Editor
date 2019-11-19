@@ -11,12 +11,13 @@ function traverse(node){
     
     if(isObject(node)){
         const name = "";
+        const attributes = Object.keys(node);
         // const nodeArray = Object.keys(node).map(k => ({[k] : node[k]}));
         const nodeArray = Object.values(node);
         const children = nodeArray.map(traverse);
-        return {name, children};
+        return {name, attributes, children};
     }else if(isArray(node)){
-        const name = "";
+        const name = "Array";
         const children = node.map(traverse);
         return {name, children};
     }else{
