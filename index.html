@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Gulp Boilerplate</title>
-	<link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
+  <meta charset="UTF-8">
+  <title>Gulp Boilerplate</title>
+  <link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="dist/favicon.png">
+  <style type="text/css" media="screen">
+    #editor {
+      width: 100em;
+      height: 30em;
+    }
+  </style>
 </head>
 <body>
   <h1>EBNF</h1>
+  <pre id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+      alert("Ace Rocks " + items[i]);
+    }
+  }</pre>
+  <script src="node_modules/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/javascript");
+  </script>
   <textarea name="" id="ebnf-textarea" cols="300" rows="20">
     definition = 'a', other, { other } | item, 'b';
   </textarea>
