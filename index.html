@@ -15,18 +15,9 @@
 </head>
 <body>
   <h1>EBNF</h1>
-  <pre id="editor">function foo(items) {
-    var i;
-    for (i = 0; i &lt; items.length; i++) {
-      alert("Ace Rocks " + items[i]);
-    }
-  }</pre>
-  <script src="node_modules/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-  <script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
-    editor.session.setMode("ace/mode/javascript");
-  </script>
+  <pre id="editor">
+      definition = 'a', other, { other } | item, 'b';
+  </pre>
   <textarea name="" id="ebnf-textarea" cols="300" rows="20">
     definition = 'a', other, { other } | item, 'b';
   </textarea>
@@ -35,6 +26,7 @@
   <h2>AST</h2>
   <div id="ast-container"></div>
   <div id="tree-view-container"></div>
+  <script src="node_modules/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
   <script src="dist/js/bundle.js"></script>
 </body>
 </html>

@@ -21,3 +21,11 @@ function evaluateEbnfInput(){
     astContainer.innerText = JSON.stringify(newAst);
     ReactDOM.render(<Tree data={newAst} />, treeViewContainer);
 }
+
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/chrome");
+editor.setOptions({
+    fontSize: "12pt",
+    enableLiveAutocompletion: true
+});
+editor.session.setMode("ace/mode/javascript");
