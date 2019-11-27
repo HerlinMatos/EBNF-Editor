@@ -1,8 +1,7 @@
 #tree-view-container{
-    height: 40em;
+    height: 100%;
+    width: 100%;
     border: solid 1px gray;
-    width: 80%;
-    margin: auto;
 }
 
 #editor {
@@ -12,21 +11,24 @@
 div.gutter.gutter-horizontal{
     float: left;
     background: lightgray;
+    border: solid 1px gray;
     height: 100%;
 }
 
 div.gutter.gutter-vertical{
     background: lightgray;
+    border: solid 1px gray;
     height: 14px;
 }
 
 .splited-item{
     float: left;
     height: inherit;
+    overflow: scroll;
 }
 
 #root, #root>div{
-    height: 20em;
+    height: 50em;
 }
 
 #editor {
