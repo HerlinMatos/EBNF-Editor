@@ -8,3 +8,23 @@
 #editor {
     border: solid 1px lightgray;
 }
+
+div.gutter.gutter-horizontal{
+    float: left;
+    background: lightgray;
+    height: 100%;
+}
+
+div.gutter.gutter-vertical{
+    background: lightgray;
+    height: 14px;
+}
+
+.splited-item{
+    float: left;
+    height: inherit;
+}
+
+#root, #root>div{
+    height: 20em;
+}

@@ -3,6 +3,7 @@ const { formatTree } = require("./tree-utils.js");
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree from 'react-d3-tree';
+import Split from 'react-split'
 
 document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
 
@@ -29,3 +30,21 @@ editor.setOptions({
     enableLiveAutocompletion: true
 });
 editor.session.setMode("ace/mode/javascript");
+
+
+
+
+ReactDOM.render(<Split
+    sizes={[100/3, 100/3, 100/3]}
+    minSize={100}
+    expandToMin={false}
+    gutterSize={10}
+    gutterAlign="center"
+    snapOffset={30}
+    dragInterval={1}
+    direction="horizontal"
+    cursor="col-resize">
+    <div class="splited-item">AA</div>
+    <div class="splited-item">BB</div>
+    <div class="splited-item">CC</div>
+</Split>, document.getElementById('root'))
