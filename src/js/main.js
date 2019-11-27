@@ -8,7 +8,7 @@ import Split from 'react-split'
 document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
 
 function evaluateEbnfInput(){
-    const ebnf = document.getElementById("ebnf-textarea").value;
+    const ebnf = editor.getValue();
     const ast = parseEbnf(ebnf); // can throw parse error exceptions
     const htmlOutput = createDocumentation(ast,{});
     
@@ -30,9 +30,6 @@ editor.setOptions({
     enableLiveAutocompletion: true
 });
 editor.session.setMode("ace/mode/javascript");
-
-
-
 
 ReactDOM.render(<Split
     sizes={[100/3, 100/3, 100/3]}
