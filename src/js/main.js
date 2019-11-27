@@ -20,7 +20,7 @@ function evaluateEbnfInput(){
     const newAst = formatTree(ast);
     
     container.innerHTML = htmlOutput;
-    astContainer.innerText = JSON.stringify(newAst);
+    // astContainer.innerText = JSON.stringify(newAst);
     ReactDOM.render(<Tree data={newAst} />, treeViewContainer);
 }
 
