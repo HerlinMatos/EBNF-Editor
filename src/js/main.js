@@ -23,14 +23,6 @@ function evaluateEbnfInput(){
     ReactDOM.render(<Tree data={newAst} />, treeViewContainer);
 }
 
-var editor = ace.edit("editor");
-editor.setTheme("ace/theme/chrome");
-editor.setOptions({
-    fontSize: "12pt",
-    enableLiveAutocompletion: true
-});
-editor.session.setMode("ace/mode/javascript");
-
 ReactDOM.render(<Split
     sizes={[100/3, 100/3, 100/3]}
     minSize={100}
@@ -41,7 +33,18 @@ ReactDOM.render(<Split
     dragInterval={1}
     direction="horizontal"
     cursor="col-resize">
-    <div class="splited-item">AA</div>
+    <div class="splited-item">
+    <pre id="editor"></pre>
+    </div>
     <div class="splited-item">BB</div>
     <div class="splited-item">CC</div>
-</Split>, document.getElementById('root'))
+    </Split>, document.getElementById('root'));
+
+var editor = ace.edit("editor");
+
+editor.setTheme("ace/theme/chrome");
+editor.setOptions({
+    fontSize: "12pt",
+    enableLiveAutocompletion: true
+});
+editor.session.setMode("ace/mode/javascript");
