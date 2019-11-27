@@ -49,6 +49,7 @@ ReactDOM.render(<Split
 var editor = ace.edit("editor");
 
 editor.setTheme("ace/theme/chrome");
+editor.setValue("definition = 'a', other, { other } | item, 'b';");
 editor.setOptions({
     fontSize: "12pt",
     enableLiveAutocompletion: true
