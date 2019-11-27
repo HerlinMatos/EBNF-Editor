@@ -26,7 +26,7 @@ function evaluateEbnfInput(){
 
 ReactDOM.render(<Split
     sizes={[100/3, 100/3, 100/3]}
-    minSize={100}
+    minSize={10}
     expandToMin={false}
     gutterSize={10}
     gutterAlign="center"
