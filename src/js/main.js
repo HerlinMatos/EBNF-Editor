@@ -8,6 +8,7 @@ import Split from 'react-split'
 document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
 
 function evaluateEbnfInput(){
+    var editor = ace.edit("editor");
     const ebnf = editor.getValue();
     const ast = parseEbnf(ebnf); // can throw parse error exceptions
     const htmlOutput = createDocumentation(ast,{});
@@ -36,8 +37,13 @@ ReactDOM.render(<Split
     <div class="splited-item">
     <pre id="editor"></pre>
     </div>
-    <div class="splited-item">BB</div>
-    <div class="splited-item">CC</div>
+    <div class="splited-item">
+        <div id="container"></div>
+        <div id="ast-container"></div>
+    </div>
+    <div class="splited-item">
+        <div id="tree-view-container"></div>
+    </div>
     </Split>, document.getElementById('root'));
 
 var editor = ace.edit("editor");
