@@ -49,9 +49,14 @@ ReactDOM.render(<Split
 var editor = ace.edit("editor");
 
 editor.setTheme("ace/theme/chrome");
-editor.setValue("definition = 'a', other, { other } | item, 'b';");
+editor.setValue(localStorage.getItem('ebnf.editor.text'));
 editor.setOptions({
     fontSize: "12pt",
     enableLiveAutocompletion: true
 });
 editor.session.setMode("ace/mode/javascript");
+
+document.getElementById("ebnf-save-btn").addEventListener("click", function(){
+    var editor = ace.edit("editor");
+    localStorage.setItem('ebnf.editor.text', editor.getValue());
+});
