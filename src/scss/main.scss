@@ -15,6 +15,10 @@ div.gutter.gutter-horizontal{
     height: 100%;
 }
 
+div.gutter.gutter-horizontal:hover{
+    cursor: col-resize;
+}
+
 div.gutter.gutter-vertical{
     background: lightgray;
     border: solid 1px gray;
