@@ -6,6 +6,8 @@ function formatTree(node){
     if(isObject(node)){
         if(node.terminal)
             return {name: node.terminal}
+        if(node.nonTerminal)
+            return {name: node.nonTerminal}
         const name = node.identifier || '';
         const attributes = Object.keys(node);
         // const nodeArray = Object.keys(node).map(k => ({[k] : node[k]}));
