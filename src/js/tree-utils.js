@@ -1,6 +1,7 @@
 const isObject = (n) => typeof n === 'object' && n.constructor === Object;
 const isArray = (n) => typeof n === 'object' && n.constructor === Array;
 
+//TODO: This function is incomplete and needs some optimizations 
 function formatTree(node, noRoot){
     if(isObject(node)){
         if(node.terminal)
