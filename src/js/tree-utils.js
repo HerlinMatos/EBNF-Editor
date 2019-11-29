@@ -11,6 +11,9 @@ function formatTree(node, noRoot){
         if(Object.values(node).length == 1 && isArray(Object.values(node)[0])){
             return {name: Object.keys(node)[0], children: Object.values(node).map((n) => formatTree(n,true))[0]}
         }
+        if(Object.values(node).length == 1 && isObject(Object.values(node)[0])){
+            return {name: Object.keys(node)[0], children: formatTree(Object.values(node),true) }
+        }
         const name = node.identifier || '';
         const filterNodeAttr = (attr) => {
             if(attr[0] == 'identifier') return false;
