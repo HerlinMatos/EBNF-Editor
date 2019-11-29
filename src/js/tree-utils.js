@@ -8,11 +8,13 @@ function formatTree(node, noRoot){
             return {name: node.terminal}
         if(node.nonTerminal)
             return {name: node.nonTerminal}
-        if(Object.values(node).length == 1 && isArray(Object.values(node)[0])){
-            return {name: Object.keys(node)[0], children: Object.values(node).map((n) => formatTree(n,true))[0]}
+        const nodeKeys = Object.keys(node);
+        const nodeValues = Object.values(node);
+        if(nodeValues.length == 1 && isArray(nodeValues[0])){
+            return {name: nodeKeys[0], children: nodeValues.map((n) => formatTree(n,true))[0]}
         }
-        if(Object.values(node).length == 1 && isObject(Object.values(node)[0])){
-            return {name: Object.keys(node)[0], children: formatTree(Object.values(node),true) }
+        if(nodeValues.length == 1 && isObject(nodeValues[0])){
+            return {name: nodeKeys[0], children: formatTree(nodeValues,true) }
         }
         const name = node.identifier || '';
         const filterNodeAttr = (attr) => {
