@@ -4,6 +4,8 @@ function formatTree(node){
     const isArray = (n) => typeof n === 'object' && n.constructor === Array;
 
     if(isObject(node)){
+        if(node.terminal)
+            return {name: node.terminal}
         const name = node.identifier || '';
         const attributes = Object.keys(node);
         // const nodeArray = Object.keys(node).map(k => ({[k] : node[k]}));
