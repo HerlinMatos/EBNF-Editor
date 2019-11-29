@@ -20,7 +20,7 @@ function formatTree(node, noRoot){
             if(attr[0] == 'location') return false;
             return true;
         }
-        const children = Object.entries(node).filter(filterNodeAttr).map((a) => formatTree(a[1],true));
+        const children = Object.entries(node).filter(filterNodeAttr).map(([key, value]) => formatTree(value,true));
         return {name, children};
     }else if(isArray(node) && noRoot){
         return node.map((n) => formatTree(n,true));
