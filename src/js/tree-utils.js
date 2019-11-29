@@ -12,8 +12,12 @@ function formatTree(node, noRoot){
             return {name: Object.keys(node)[0], children: Object.values(node).map((n) => formatTree(n,true))[0]}
         }
         const name = node.identifier || '';
-        const nodeArray = Object.values(node);
-        const children = nodeArray.map(formatTree);
+        const filterNodeAttr = (attr) => {
+            if(attr[0] == 'identifier') return false;
+            if(attr[0] == 'location') return false;
+            return true;
+        }
+        const children = Object.entries(node).filter(filterNodeAttr).map((a) => formatTree(a[1],true));
         return {name, children};
     }else if(isArray(node) && noRoot){
         return node.map((n) => formatTree(n,true));
