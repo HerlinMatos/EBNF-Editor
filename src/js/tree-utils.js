@@ -11,10 +11,9 @@ function formatTree(node, noRoot){
             return {name: Object.keys(node)[0], children: Object.values(node).map((n) => formatTree(n,true))[0]}
         }
         const name = node.identifier || '';
-        const attributes = Object.keys(node);
         const nodeArray = Object.values(node);
         const children = nodeArray.map(formatTree);
-        return {name, attributes, children};
+        return {name, children};
     }else if(isArray(node) && noRoot){
         return node.map((n) => formatTree(n,true));
     }else if(isArray(node) && !noRoot){
