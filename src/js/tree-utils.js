@@ -20,6 +20,7 @@ function formatTree(node, noRoot){
         const filterNodeAttr = (attr) => {
             if(attr[0] == 'identifier') return false;
             if(attr[0] == 'location') return false;
+            if(attr[0] == 'skippable') return false;
             return true;
         }
         const children = Object.entries(node).filter(filterNodeAttr).map(([key, value]) => formatTree(value,true));
