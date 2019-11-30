@@ -10,11 +10,17 @@ function formatTree(node, noRoot){
             return {name: node.nonTerminal}
         const nodeKeys = Object.keys(node);
         const nodeValues = Object.values(node);
-        if(nodeValues.length == 1 && isArray(nodeValues[0])){
-            return {name: nodeKeys[0], children: nodeValues.map((n) => formatTree(n,true))[0]}
+        if(nodeKeys.includes('sequence')){
+            return {name: 'sequence', children: nodeValues.map((n) => formatTree(n,true))[0]}
         }
-        if(nodeValues.length == 1 && isObject(nodeValues[0])){
-            return {name: nodeKeys[0], children: formatTree(nodeValues,true) }
+        if(nodeKeys.includes('repetition')){
+            return {name: 'repetition', attributes: ['skippable: '+node.skippable],children: [formatTree(node.repetition, true)]}
+        }
+        if(nodeKeys.includes('choice')){
+            return {name: 'choice', children: nodeValues.map((n) => formatTree(n,true))[0]}
+        }
+        if(nodeKeys.includes('optional')){
+            return {name: 'optional', children: [formatTree(node.optional, true)]}
         }
         const name = node.identifier || '';
         const filterNodeAttr = (attr) => {
