@@ -31,8 +31,6 @@ function formatTree(node, noRoot){
         const name = "Expressions";
         const children = node.map((n) => formatTree(n,true));
         return {name, children};
-    }else{
-        return {name: node.toString()};
     }
 }
 
