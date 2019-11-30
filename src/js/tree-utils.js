@@ -4,12 +4,12 @@ const isArray = (n) => typeof n === 'object' && n.constructor === Array;
 //TODO: This function is incomplete and needs some optimizations 
 function formatTree(node, noRoot){
     if(isObject(node)){
+        const nodeKeys = Object.keys(node);
+        const nodeValues = Object.values(node);
         if(node.terminal)
             return {name: node.terminal}
         if(node.nonTerminal)
             return {name: node.nonTerminal}
-        const nodeKeys = Object.keys(node);
-        const nodeValues = Object.values(node);
         if(nodeKeys.includes('sequence')){
             return {name: 'sequence', children: nodeValues.map((n) => formatTree(n,true))[0]}
         }
