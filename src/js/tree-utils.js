@@ -22,15 +22,9 @@ function formatTree(node, noRoot){
         if(nodeKeys.includes('optional')){
             return {name: 'optional', children: [formatTree(node.optional, true)]}
         }
-        const name = node.identifier || '';
-        const filterNodeAttr = (attr) => {
-            if(attr[0] == 'identifier') return false;
-            if(attr[0] == 'location') return false;
-            if(attr[0] == 'skippable') return false;
-            return true;
+        if(nodeKeys.includes('definition')){
+            return {name: node.identifier, children: [formatTree(node.definition, true)]}
         }
-        const children = Object.entries(node).filter(filterNodeAttr).map(([key, value]) => formatTree(value,true));
-        return {name, children};
     }else if(isArray(node) && noRoot){
         return node.map((n) => formatTree(n,true));
     }else if(isArray(node) && !noRoot){
