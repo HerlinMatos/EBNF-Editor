@@ -49,13 +49,17 @@ ReactDOM.render(<Split
 // ace.require("ace/ext/language_tools");
 var editor = ace.edit("editor");
 
+// ace.config.set('basePath', '/ace-builds/src-noconflict');
+ace.config.set('modePath', './src/js');
+// ace.config.set('themePath', '/ace-builds/src-noconflict');
+
+editor.session.setMode("ebnf");
 editor.setTheme("ace/theme/chrome");
 editor.setValue(localStorage.getItem('ebnf.editor.text'));
 editor.setOptions({
     fontSize: "12pt",
     enableLiveAutocompletion: true
 });
-editor.session.setMode("ace/mode/javascript");
 
 document.getElementById("ebnf-save-btn").addEventListener("click", function(){
     var editor = ace.edit("editor");
