@@ -44,7 +44,7 @@ gulp.task('babel', function() {
         entries: './src/js/main.js',
         debug: true
     })
-    .transform(babelify, { presets: ["@babel/preset-env", "@babel/preset-react"] })
+    .transform(babelify)
     .on('error',gutil.log)
     .bundle()
     .on('error',gutil.log)

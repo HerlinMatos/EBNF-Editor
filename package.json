@@ -32,5 +32,13 @@
     "react-d3-tree": "^1.15.3",
     "react-dom": "^16.12.0",
     "react-split": "^2.0.7"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env", 
+      "@babel/preset-react"
+    ],
+    "sourceMaps": true,
+    "retainLines": true
   }
 }
