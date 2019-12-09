@@ -105,6 +105,9 @@ self.MonacoEnvironment = {
     ].join('\n'),
     language: 'EBNF',
     theme: 'EBNFTheme',
+    minimap: {
+		enabled: false
+	}
   });
 
   //-------------------------------------
