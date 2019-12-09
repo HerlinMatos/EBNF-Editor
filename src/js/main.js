@@ -45,6 +45,41 @@ ReactDOM.render(<Split
         <div id="tree-view-container"></div>
     </div>
     </Split>, document.getElementById('root'));
+//--------------------------------------------
+// Register a new language
+monaco.languages.register({ id: 'EBNF' });
+
+// Register a tokens provider for the language
+monaco.languages.setMonarchTokensProvider('EBNF', {
+	tokenizer: {
+		root: [
+			[/\(\*/, "comment","@comment"],
+			[/\?/, "specialsequence", "@specialsequence"],
+			[/\w+/, "non-terminal"],
+			[/[\"\']\w+[\"\']/, "terminal"],
+		],
+        comment: [
+			[/\*\)/, 'comment', '@pop'],
+			[/./, 'comment.content']
+		],
+        specialsequence: [
+			[/\?/, 'specialsequence', '@pop'],
+			[/./, 'specialsequence.content']
+		],
+	}
+});
+
+// Define a new theme that contains only rules that match this language
+monaco.editor.defineTheme('EBNFTheme', {
+	base: 'vs',
+	inherit: false,
+	rules: [
+		{ token: 'non-terminal', foreground: '0591d4', fontStyle: 'bold' },
+		{ token: 'terminal', foreground: 'B80C09' },
+		{ token: 'specialsequence', foreground: '9a9a9a', fontStyle: 'bold' },
+		{ token: 'comment', foreground: '9a9a9a' },
+	]
+});
 
 self.MonacoEnvironment = {
     getWorkerUrl: function(moduleId, label) {
@@ -68,8 +103,11 @@ self.MonacoEnvironment = {
     value: [
       'x = "1";',
     ].join('\n'),
-    language: 'javascript'
+    language: 'EBNF',
+    theme: 'EBNFTheme',
   });
+
+  //-------------------------------------
 
 document.getElementById("ebnf-save-btn").addEventListener("click", function(){
     localStorage.setItem('ebnf.editor.text', monacoInstance.getValue());
