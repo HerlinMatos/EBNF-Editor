@@ -4,12 +4,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree from 'react-d3-tree';
 import Split from 'react-split'
+import * as monaco from 'monaco-editor';
 
 document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
 
 function evaluateEbnfInput(){
-    var editor = document.getElementById("editor");
-    const ebnf = editor.value;
+    const ebnf = monacoInstance.getValue();
     const ast = parseEbnf(ebnf); // can throw parse error exceptions
     const htmlOutput = createDocumentation(ast,{});
     
@@ -35,7 +35,7 @@ ReactDOM.render(<Split
     direction="horizontal"
     cursor="col-resize">
     <div class="splited-item">
-    <textarea id="editor"></textarea>
+    <div id="editor"></div>
     </div>
     <div class="splited-item">
         <div id="container"></div>
@@ -46,9 +46,31 @@ ReactDOM.render(<Split
     </div>
     </Split>, document.getElementById('root'));
 
-
+self.MonacoEnvironment = {
+    getWorkerUrl: function(moduleId, label) {
+      if (label === 'json') {
+        return './json.worker.js';
+      }
+      if (label === 'css') {
+        return './css.worker.js';
+      }
+      if (label === 'html') {
+        return './html.worker.js';
+      }
+      if (label === 'typescript' || label === 'javascript') {
+        return './ts.worker.js';
+      }
+      return './editor.worker.js';
+    },
+  };
+  
+ window.monacoInstance =  monaco.editor.create(document.getElementById('editor'), {
+    value: [
+      'x = "1";',
+    ].join('\n'),
+    language: 'javascript'
+  });
 
 document.getElementById("ebnf-save-btn").addEventListener("click", function(){
-    var editor = document.getElementById("editor");
-    localStorage.setItem('ebnf.editor.text', editor.value);
+    localStorage.setItem('ebnf.editor.text', monacoInstance.getValue());
 });
