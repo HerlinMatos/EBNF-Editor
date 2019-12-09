@@ -2,43 +2,22 @@
   "name": "",
   "version": "1.1.0",
   "description": "",
-  "main": "main.js",
+  "main": "src/js/main.js",
   "scripts": {
-    "start": "gulp"
+    "start": "parcel ./index.html --open"
   },
   "author": "",
   "license": "",
   "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.7.1",
-    "autoprefixer": "^9.3.1",
-    "babelify": "^10.0.0",
-    "browser-sync": "^2.18.8",
-    "browserify": "^16.2.3",
-    "cssnano": "^4.1.7",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^8.0.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-util": "^3.0.8",
-    "vinyl-source-stream": "^2.0.0"
+    "@babel/core": "^7.7.5",
+    "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
     "@babel/preset-react": "^7.7.0",
-    "ace-builds": "^1.4.7",
     "ebnf2railroad": "^1.9.0",
     "react": "^16.12.0",
     "react-d3-tree": "^1.15.3",
     "react-dom": "^16.12.0",
     "react-split": "^2.0.7"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env", 
-      "@babel/preset-react"
-    ],
-    "sourceMaps": true,
-    "retainLines": true
   }
 }

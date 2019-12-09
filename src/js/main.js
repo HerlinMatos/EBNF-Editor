@@ -8,8 +8,8 @@ import Split from 'react-split'
 document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
 
 function evaluateEbnfInput(){
-    var editor = ace.edit("editor");
-    const ebnf = editor.getValue();
+    var editor = document.getElementById("editor");
+    const ebnf = editor.value;
     const ast = parseEbnf(ebnf); // can throw parse error exceptions
     const htmlOutput = createDocumentation(ast,{});
     
@@ -35,7 +35,7 @@ ReactDOM.render(<Split
     direction="horizontal"
     cursor="col-resize">
     <div class="splited-item">
-    <pre id="editor"></pre>
+    <textarea id="editor"></textarea>
     </div>
     <div class="splited-item">
         <div id="container"></div>
@@ -46,22 +46,9 @@ ReactDOM.render(<Split
     </div>
     </Split>, document.getElementById('root'));
 
-// ace.require("ace/ext/language_tools");
-var editor = ace.edit("editor");
 
-// ace.config.set('basePath', '/ace-builds/src-noconflict');
-ace.config.set('modePath', './src/js');
-// ace.config.set('themePath', '/ace-builds/src-noconflict');
-
-editor.session.setMode("ebnf");
-editor.setTheme("ace/theme/chrome");
-editor.setValue(localStorage.getItem('ebnf.editor.text'));
-editor.setOptions({
-    fontSize: "12pt",
-    enableLiveAutocompletion: true
-});
 
 document.getElementById("ebnf-save-btn").addEventListener("click", function(){
-    var editor = ace.edit("editor");
-    localStorage.setItem('ebnf.editor.text', editor.getValue());
+    var editor = document.getElementById("editor");
+    localStorage.setItem('ebnf.editor.text', editor.value);
 });
