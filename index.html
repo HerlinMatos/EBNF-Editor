@@ -4,16 +4,20 @@
   <meta charset="UTF-8">
   <title>Gulp Boilerplate</title>
   <link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="icon" href="dist/favicon.png"> -->
 </head>
 <body>
   <div id="header">
     EBNF Editor
+    <div style="float: right;"> 
+      <button id="ebnf-evaluate-btn" class="btn btn-primary">Evaluate</button>
+      <button id="ebnf-save-btn" class="btn btn-success">Save</button>
+    </div>
   </div>
-  <button id="ebnf-evaluate-btn">Evaluate</button>
-  <button id="ebnf-save-btn">Save</button>
   <div id="root"></div>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="src/js/main.js"></script>
 </body>
 </html>
