@@ -40,10 +40,11 @@ div.gutter.gutter-vertical{
   height: 100%;
 }
 
-#header{
+.header{
     background: var(--color1);
-    height: 3rem;
+    // height: 3rem;
     color: white;
+    position: relative;
 }
 
 :root{
@@ -54,12 +55,14 @@ div.gutter.gutter-vertical{
     --color5: #20A4F3;
 }
 
-.play-btn{
+.btn-play{
     background: var(--color2) !important;
     border-color: var(--color2) !important;
+    margin-right: 10px;
 }
 
-.save-btn{
+.btn-save{
     background: var(--color3) !important;
     border-color: var(--color3) !important;
+    margin-right: 10px;
 }

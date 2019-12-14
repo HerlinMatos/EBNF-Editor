@@ -9,13 +9,15 @@
   <!-- <link rel="icon" href="dist/favicon.png"> -->
 </head>
 <body>
-  <div id="header">
-    EBNF Editor
-    <div style="float: right;"> 
-      <button id="ebnf-evaluate-btn" class="btn btn-primary play-btn">Evaluate</button>
-      <button id="ebnf-save-btn" class="btn btn-success save-btn">Save</button>
-    </div>
-  </div>
+  <header id="header">
+    <nav class="navbar header">
+      <spam class="navbar-brand" href="#">EBNF Editor</spam>
+      <form class="form-inline">
+          <button id="ebnf-evaluate-btn" class="btn btn-primary btn-sm btn-play">Evaluate</button>
+          <button id="ebnf-save-btn" class="btn btn-success btn-sm btn-save">Save</button>
+      </form>
+    </nav>
+  </header>
   <div id="root"></div>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="src/js/main.js"></script>
