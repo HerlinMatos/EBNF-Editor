@@ -41,7 +41,7 @@ div.gutter.gutter-vertical{
 }
 
 #header{
-    background: #23384e;
+    background: var(--color1);
     height: 3rem;
     color: white;
 }
@@ -52,4 +52,14 @@ div.gutter.gutter-vertical{
     --color3: #2EC4B6;
     --color4: #F6F7F8;
     --color5: #20A4F3;
+}
+
+.play-btn{
+    background: var(--color2) !important;
+    border-color: var(--color2) !important;
+}
+
+.save-btn{
+    background: var(--color3) !important;
+    border-color: var(--color3) !important;
 }
