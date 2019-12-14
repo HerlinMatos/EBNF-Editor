@@ -6,24 +6,6 @@ import Tree from 'react-d3-tree';
 import Split from 'react-split'
 import { create } from './editor'
 
-document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
-
-function evaluateEbnfInput(){
-    const ebnf = monacoInstance.getValue();
-    const ast = parseEbnf(ebnf); // can throw parse error exceptions
-    const htmlOutput = createDocumentation(ast,{});
-    
-    const container = document.getElementById("container");
-    const astContainer = document.getElementById("ast-container");
-    const treeViewContainer = document.getElementById("tree-view-container");
-    
-    const newAst = formatTree(ast);
-    
-    container.innerHTML = htmlOutput;
-    // astContainer.innerText = JSON.stringify(newAst);
-    ReactDOM.render(<Tree data={newAst} />, treeViewContainer);
-}
-
 ReactDOM.render(<Split
     sizes={[100/3, 100/3, 100/3]}
     minSize={10}
@@ -48,6 +30,23 @@ ReactDOM.render(<Split
 
 window.monacoInstance = create(document.getElementById('editor'));
 
+function evaluateEbnfInput(){
+    const ebnf = monacoInstance.getValue();
+    const ast = parseEbnf(ebnf); // can throw parse error exceptions
+    const htmlOutput = createDocumentation(ast,{});
+    
+    const container = document.getElementById("container");
+    const astContainer = document.getElementById("ast-container");
+    const treeViewContainer = document.getElementById("tree-view-container");
+    
+    const newAst = formatTree(ast);
+    
+    container.innerHTML = htmlOutput;
+    // astContainer.innerText = JSON.stringify(newAst);
+    ReactDOM.render(<Tree data={newAst} />, treeViewContainer);
+}
+
+document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
 document.getElementById("ebnf-save-btn").addEventListener("click", function(){
     localStorage.setItem('ebnf.editor.text', monacoInstance.getValue());
 });
