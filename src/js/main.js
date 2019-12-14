@@ -101,10 +101,17 @@ self.MonacoEnvironment = {
   
  window.monacoInstance =  monaco.editor.create(document.getElementById('editor'), {
     value: [
-      'x = "1";',
+      '(*',
+      ' Write EBNF code here',
+      ' see reference: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form',
+      '*)',
+      '',
+      'root = ',
+      '',
     ].join('\n'),
     language: 'EBNF',
     theme: 'EBNFTheme',
+    fontSize: 16,
     minimap: {
 		enabled: false
 	}
