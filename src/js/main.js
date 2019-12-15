@@ -31,19 +31,20 @@ ReactDOM.render(<Split
 window.monacoInstance = create(document.getElementById('editor'));
 
 function evaluateEbnfInput(){
-    const ebnf = monacoInstance.getValue();
-    const ast = parseEbnf(ebnf); // can throw parse error exceptions
-    const htmlOutput = createDocumentation(ast,{});
-    
-    const container = document.getElementById("container");
-    const astContainer = document.getElementById("ast-container");
-    const treeViewContainer = document.getElementById("tree-view-container");
-    
-    const newAst = formatTree(ast);
-    
-    container.innerHTML = htmlOutput;
-    // astContainer.innerText = JSON.stringify(newAst);
-    ReactDOM.render(<Tree data={newAst} />, treeViewContainer);
+    try {
+        const ebnf = monacoInstance.getValue();
+        const ast = parseEbnf(ebnf); // can throw parse error exceptions
+        const htmlOutput = createDocumentation(ast,{});
+        const container = document.getElementById("container");
+        // const astContainer = document.getElementById("ast-container");
+        const treeViewContainer = document.getElementById("tree-view-container");
+        const newAst = formatTree(ast);
+        container.innerHTML = htmlOutput;
+        // astContainer.innerText = JSON.stringify(newAst);
+        ReactDOM.render(<Tree data={newAst} />, treeViewContainer);
+    } catch (error) {
+        alert(error);
+    }
 }
 
 document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
