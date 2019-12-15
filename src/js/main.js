@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom';
 import Tree from 'react-d3-tree';
 import Split from 'react-split'
 import { create } from './editor'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css' // Import precompiled Bootstrap css
+import '@fortawesome/fontawesome-free/css/all.css'
 
 ReactDOM.render(<Split
     sizes={[100/3, 100/3, 100/3]}
