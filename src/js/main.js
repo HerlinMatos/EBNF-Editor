@@ -38,7 +38,8 @@ function initEditor() {
         window.monacoInstance.setValue(storedValue);
 }
 
-function evaluateEbnfInput(){
+function evaluateEbnfInput(event){
+    event.preventDefault();
     try {
         const ebnf = monacoInstance.getValue();
         const ast = parseEbnf(ebnf); // can throw parse error exceptions
