@@ -51,6 +51,7 @@ function evaluateEbnfInput(){
 }
 
 document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
-document.getElementById("ebnf-save-btn").addEventListener("click", function(){
+document.getElementById("ebnf-save-btn").addEventListener("click", function(event){
+    event.preventDefault();
     localStorage.setItem('ebnf.editor.text', monacoInstance.getValue());
 });
