@@ -31,7 +31,12 @@ ReactDOM.render(<Split
     </div>
     </Split>, document.getElementById('root'));
 
-window.monacoInstance = create(document.getElementById('editor'));
+function initEditor() {
+    window.monacoInstance = create(document.getElementById('editor'));
+    let storedValue = localStorage.getItem('ebnf.editor.text');
+    if(storedValue)
+        window.monacoInstance.setValue(storedValue);
+}
 
 function evaluateEbnfInput(){
     try {
@@ -49,6 +54,8 @@ function evaluateEbnfInput(){
         alert(error);
     }
 }
+
+initEditor();
 
 document.getElementById("ebnf-evaluate-btn").addEventListener("click", evaluateEbnfInput);
 document.getElementById("ebnf-save-btn").addEventListener("click", function(event){
