@@ -38,6 +38,12 @@ function initEditor() {
         window.monacoInstance.setValue(storedValue);
 }
 
+function railRoadStyles() {
+    document.querySelector('#container>header').remove();
+    document.querySelector('#container>nav').remove();
+    document.querySelector('#container>main').style.margin = 0;
+}
+
 function evaluateEbnfInput(event){
     event.preventDefault();
     try {
@@ -49,6 +55,7 @@ function evaluateEbnfInput(event){
         const treeViewContainer = document.getElementById("tree-view-container");
         const newAst = formatTree(ast);
         container.innerHTML = htmlOutput;
+        railRoadStyles();
         // astContainer.innerText = JSON.stringify(newAst);
         ReactDOM.render(<Tree data={newAst} />, treeViewContainer);
     } catch (error) {
