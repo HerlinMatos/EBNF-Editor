@@ -10,7 +10,8 @@
   "license": "",
   "devDependencies": {
     "@babel/core": "^7.7.5",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.25.1-test.1"
   },
   "dependencies": {
     "@babel/preset-react": "^7.7.0",
