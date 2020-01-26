@@ -42,6 +42,7 @@ function initEditor() {
 function railRoadStyles() {
     document.querySelector('#container>header').remove();
     document.querySelector('#container>nav').remove();
+    document.querySelector('#container>main>footer').remove();
     document.querySelector('#container>main').style.margin = 0;
 }
 
