@@ -26,10 +26,10 @@ function formatTree(node, noRoot){
             return {name: node.identifier, children: [formatTree(node.definition, true)]}
         }
     }else if(isArray(node) && noRoot){
-        return node.map((n) => formatTree(n,true));
+        return node.filter(n => !n.comment).map((n) => formatTree(n,true));
     }else if(isArray(node) && !noRoot){
         const name = "Expressions";
-        const children = node.map((n) => formatTree(n,true));
+        const children = node.filter(n => !n.comment).map((n) => formatTree(n,true));
         return {name, children};
     }
 }
