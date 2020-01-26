@@ -28,10 +28,15 @@ function formatTree(node, ast, noRoot){
     }else if(isArray(node) && noRoot){
         return node.filter(n => !n.comment).map((n) => formatTree(n,ast,true));
     }else if(isArray(node) && !noRoot){
-        const name = "Expressions";
         const ast = node;
-        const children = node.filter(n => !n.comment).map((n) => formatTree(n,ast,true));
-        return {name, children};
+        const rootNode = node.find(n => n.identifier == 'root');
+        if(rootNode){
+            return formatTree(rootNode, ast, true);
+        }else{
+            const name = "Expressions";
+            const children = node.filter(n => !n.comment).map((n) => formatTree(n,ast,true));
+            return {name, children};
+        }
     }
 }
 
