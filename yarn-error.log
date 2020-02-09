@@ -1,0 +1,68 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn build
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.4
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "",
+    "version": "1.1.0",
+    "description": "",
+    "main": "src/js/main.js",
+    "scripts": {
+      "start": "./build_workers.sh && parcel ./index.html --open",
+      "build": "parcel build --our-dir docs ./index.html"
+    },
+    "author": "",
+    "license": "",
+    "devDependencies": {
+      "@babel/core": "^7.7.5",
+      "parcel-bundler": "^1.12.3",
+      "sass": "^1.25.1-test.1"
+    },
+    "dependencies": {
+      "@babel/preset-react": "^7.7.0",
+      "@fortawesome/fontawesome-free": "^5.12.0",
+      "bootstrap": "^4.4.1",
+      "ebnf2railroad": "^1.9.0",
+      "jquery": "^3.4.1",
+      "monaco-editor": "^0.18.1",
+      "popper.js": "^1.16.0",
+      "react": "^16.12.0",
+      "react-d3-tree": "^1.15.3",
+      "react-dom": "^16.12.0",
+      "react-split": "^2.0.7"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c parcel build --our-dir docs ./index.html
+  Directory: /Users/herlin/Proyectos/EBNF-Editor
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
