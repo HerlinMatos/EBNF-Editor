@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/js/main.js",
   "scripts": {
-    "start": "./build_workers.sh && parcel ./index.html --open"
+    "start": "./build_workers.sh && parcel ./index.html --open",
+    "build": "parcel ./index.html"
   },
   "author": "",
   "license": "",
