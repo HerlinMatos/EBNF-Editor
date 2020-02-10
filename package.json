@@ -5,7 +5,7 @@
   "main": "src/js/main.js",
   "scripts": {
     "start": "./build_workers.sh && parcel ./index.html --open",
-    "build": "parcel build --out-dir docs --public-url EBNF-Editor ./index.html"
+    "build": "parcel build --out-dir docs ./index.html"
   },
   "author": "",
   "license": "",
